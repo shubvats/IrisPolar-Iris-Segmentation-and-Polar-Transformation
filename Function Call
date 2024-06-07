@@ -1,0 +1,15 @@
+close all
+imagePaths = {'iris1.jpg', 'iris2.jpg', 'iris3.jpg', 'iris4.jpg', 'iris5.jpg'
+'iris6.jpg' };
+minRadii = [10, 12, 15, 13, 25, 25];
+maxRadii = [50, 50, 50, 50, 60, 60];
+sigmas = [2, 10, 10, 2.8, 10, 10];
+sensitivities = [0.9, 0.9, 0.9, 0.9, 0.9, 0.95];
+outerSearchRadii = [100, 300, 200, 150, 100, 100]; % Add your outer search radii
+here
+for i = 1:numel(imagePaths)
+var=['image', num2str(i)];
+detectIris(imagePaths{i}, minRadii(i), maxRadii(i), sigmas(i),
+sensitivities(i), outerSearchRadii(i), i,var);
+pause(1); % Pause for 1 second before processing the next image
+end
